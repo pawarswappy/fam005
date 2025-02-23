@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel About Section</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+
+    <section class="head">
+        <div class="container1 flex1 flex12">
+            <div class="scoial">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"> </i>
+            </div>
+            <div class="logod">
+                <img src="logo.png" style="height: 50px; color: aliceblue;" alt="cvbghnjmdxcfvgbhnjmk" />
+            </div>
+            <div class="address">
+                <i class="fas fa-map-marker-alt" ></i>
+                
+                <span>205 Fida Walinton, Tongo Street Front, USA</span>
+            </div>
+        </div>
+    </section>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar flex1">
+                <div class="sticky_logo logo">
+                    <img src="image/logo.png" alt="" />
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" style="text-decoration: underline; text-underline-offset: 10px;  text-decoration-thickness:2px ;">about</a></li>
+                    <li><a href="Amenities.html">Amenities</a></li>
+                    <!-- <li><a href="#room">room</a></li> -->
+                    <li><a href="gallary.html">gallary</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <div class="head_contact">
+                    <!-- <i class="fas fa-phone-volume"></i> -->
+                    <!-- <span>+91 9833113472</span> -->
+                    <img src="logo.png" alt="" />
+
+                </div>
+            </nav>
+        </div>
+    </header>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", mobliemmenu);
+
+        function mobliemmenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        }
+
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+
+
+
+
+    <div class="about-image-container">
+        <img src="img3_1.webp" alt="Background Image">
+        <div class="text">
+            <h1>About</h1>
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> &gt; About
+            </p>
+        </div>
+    </div>
+
+
+    <div class="about-stats-section">
+        <div class="stat-box">
+            <i class="fas fa-users "></i>
+            <h3>200+</h3>
+            <p>People work in our company</p>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-home"></i>
+            <h3>160+</h3>
+            <p>Houses we build for our client</p>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-globe"></i>
+            <h3>25+</h3>
+            <p>Cities around the world</p>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-mug-hot"></i>
+            <h3>1000+</h3>
+            <p>People work in our company</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stats = document.querySelectorAll(".stat-box h3");
+            const speed = 100; // Adjust speed of counting
+
+            const startCounting = (stat) => {
+                const target = +stat.getAttribute("data-target");
+                let count = 0;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        stat.innerText = Math.floor(count) + "+";
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            };
+
+            const options = {
+                threshold: 0.5, // Trigger when 50% visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        startCounting(entry.target);
+                        observer.unobserve(entry.target); // Stop observing once counted
+                    }
+                });
+            }, options);
+
+            stats.forEach((stat) => {
+                stat.setAttribute("data-target", stat.innerText.replace("+", ""));
+                stat.innerText = "0+"; // Reset before animation
+                observer.observe(stat);
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <div class="about-container">
+        <div class="image-container">
+            <img src="about1-2.webp" alt="Main Image">
+            <!-- <img src="https://html.kodesolution.com/2025/hoteler-html/images/resource/about1-1.jpg" alt="Overlay Image" class="overlay-image"> -->
+        </div>
+
+        <div class="content">
+            <h5>ABOUT US</h5>
+            <h2>We Provide Outdoor Activities To All</h2>
+            <p>
+                <span class="highlight">Our activities around the world and across various Hotel Service sectors.</span>
+            </p>
+            <p>
+                With over four decades of experience providing solutions to large-scale enterprises throughout the
+                globe, we offer advanced logistics tailored for specific markets.
+            </p>
+            <ul class="list">
+                <li>Introduce best the novado and their services.</li>
+                <li>Highlight featured on novado project.</li>
+                <li>Novado mission statement or philosophy.</li>
+            </ul>
+            <a href="#" class="btn">DISCOVER MORE</a>
+        </div>
+    </div>
+
+
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>ROOMS & SUITES</span>
+            <span class="star">★</span>
+            <span class="faded">HOTELER</span>
+            <span class="star">★</span>
+            <span>ROOMS & SUITES</span>
+            <span class="star">★</span>
+            <span class="faded">HOTELER</span>
+            <span class="star">★</span>
+        </div>
+    </div>
+
+
+
+
+
+    <section class="main-grid-contaniner">
+        <div class="grid-container">
+            <!-- Row 1 -->
+            <div class="grid-item Row1">
+                <img src="feature2-1[1].webp" alt="Restaurant">
+            </div>
+            <div class="grid-item grid-content Row1">
+                <h5>DISCOVER</h5>
+                <h2>The Restaurant</h2>
+                <p>With the largest fleet of luxury catamarans, sailing, and motor yachts in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience!</p>
+                <a href="#" class="btn-read">READ MORE</a>
+            </div>
+
+            <div class="grid-item grid-content for-tab">
+                <h5>DISCOVER</h5>
+                <h2>The Restaurant</h2>
+                <p>123With the largest fleet of luxury catamarans, sailing, and motor yachts in Santorini, we guarantee
+                    the ultimate sailing experience!</p>
+                <a href="#" class="btn-read">READ MORE</a>
+            </div>
+            <div class="grid-item for-tab">
+                <img src="feature2-1[1].webp" alt="Spa Center">
+            </div>
+
+
+
+            <!-- Row 2 -->
+            <div class="grid-item grid-content">
+                <h5>EXPERIENCE</h5>
+                <h2>Spa Center</h2>
+                <p>With the largest fleet of luxury catamarans, sailing, and motor yachts in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience!</p>
+                <a href="#" class="btn-read">READ MORE</a>
+            </div>
+            <div class="grid-item">
+                <img src="feature2-2.webp" alt="Spa Center">
+            </div>
+
+            <!-- Row 3 -->
+            <div class="grid-item Row3">
+                <img src="feature2-3.webp" alt="Fitness Center">
+            </div>
+            <div class="grid-item grid-content Row3">
+                <h5>MODERN</h5>
+                <h2>Fitness Center</h2>
+                <p>With the largest fleet of luxury catamarans, sailing, and motor yachts in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience!</p>
+                <a href="#" class="btn-read">READ MORE</a>
+            </div>
+
+
+            <div class="grid-item grid-content for-tab3">
+                <h5>MODERN</h5>
+                <h2>Fitness Center</h2>
+                <p>With the largest fleet of luxury catamarans, sailing, and motor yachts in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience! With the largest fleet of luxury catamarans, sailing, and motor yachts
+                    in Santorini, we guarantee the
+                    ultimate sailing experience!</p>
+                <a href="#" class="btn-read">READ MORE</a>
+            </div>
+            <div class="grid-item for-tab3">
+                <img src="feature2-3.webp" alt="Fitness Center">
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <footer class="footer" style="margin: 0 !important;">
+        <div class="containerlast">
+            <!-- Hotel Location Section -->
+            <div>
+                <h4>Hotel Location</h4>
+                <p>Malegaon Road, Near Gadre Autocon, Akola Naka, Washim - 444505 (Near By Mahendra Showroom)</p>
+                <div class="contact-info">
+                    <i class="fas fa-home"></i>
+                    <p>No. 96, Patani City, Washim</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 9545785974</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <p>hotelambassadorplaza@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- More Links Section -->
+            <div>
+                <h4>More Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Office</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <!-- <li><a href="#">Guarantee</a></li>
+      <li><a href="#">Buy Gift Card</a></li>
+      <li><a href="#">Return Policy</a></li> -->
+                </ul>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div>
+                <h4>Newsletter</h4>
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter Your Email Here" />
+                    <button>Subscribe</button>
+                </div>
+                <h4 style="margin-top: 10px;">Stay Connected</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-vimeo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+
+</body>
+
+</html>
